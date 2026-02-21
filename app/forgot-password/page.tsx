@@ -25,7 +25,7 @@ export default async function ForgotPasswordPage({
         const supabase = await createClient()
 
         const { error: resetError } = await supabase.auth.resetPasswordForEmail(email, {
-            redirectTo: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/auth/callback?next=/admin/dashboard`, // Next can be customized to change-password route in real app
+            redirectTo: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/auth/callback?next=/update-password`, // Next can be customized to change-password route in real app
         })
 
         if (resetError) {

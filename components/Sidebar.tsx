@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
-import { LayoutDashboard, Users, UserCog, LogOut } from 'lucide-react'
+import { LayoutDashboard, Users, UserCog, LogOut, Kanban } from 'lucide-react'
 import { createClient } from '@/utils/supabase/client'
 
 interface SidebarProps {
@@ -15,6 +15,9 @@ export function Sidebar({ role }: SidebarProps) {
 
     const adminLinks = [
         { name: 'Dashboard', href: '/admin/dashboard', icon: LayoutDashboard },
+        { name: 'Leads', href: '/admin/leads', icon: Users },
+        { name: 'Pipeline', href: '/admin/pipeline', icon: Kanban },
+        { name: 'Templates', href: '/admin/templates', icon: LayoutDashboard },
         { name: 'Users', href: '/admin/users', icon: Users },
         { name: 'Settings', href: '/admin/settings', icon: UserCog },
     ]
@@ -22,6 +25,8 @@ export function Sidebar({ role }: SidebarProps) {
     const repLinks = [
         { name: 'Dashboard', href: '/rep/dashboard', icon: LayoutDashboard },
         { name: 'Leads', href: '/rep/leads', icon: Users },
+        { name: 'Pipeline', href: '/rep/pipeline', icon: Kanban },
+        { name: 'Follow-ups', href: '/rep/followups', icon: LayoutDashboard },
     ]
 
     const links = role === 'Admin' ? adminLinks : repLinks

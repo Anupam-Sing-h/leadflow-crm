@@ -16,11 +16,12 @@ export default async function SignupPage({
     const signup = async (formData: FormData) => {
         'use server'
 
+        const name = formData.get('name') as string
         const email = formData.get('email') as string
         const password = formData.get('password') as string
         const role = formData.get('role') as string // Admin or SalesRep
 
-        if (!email || !password || !role) {
+        if (!name || !email || !password || !role) {
             return redirect('/signup?error=All+fields+are+required')
         }
 
@@ -31,6 +32,7 @@ export default async function SignupPage({
             password,
             options: {
                 data: {
+                    name,
                     role, // Assigning role via user_metadata
                 }
             }
@@ -65,6 +67,16 @@ export default async function SignupPage({
                                 {message}
                             </div>
                         )}
+                        <div className="space-y-2">
+                            <Label htmlFor="name">Full Name</Label>
+                            <Input
+                                id="name"
+                                name="name"
+                                type="text"
+                                placeholder="John Doe"
+                                required
+                            />
+                        </div>
                         <div className="space-y-2">
                             <Label htmlFor="email">Email</Label>
                             <Input
