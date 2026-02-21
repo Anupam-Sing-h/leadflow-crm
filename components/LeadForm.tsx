@@ -98,7 +98,7 @@ export function LeadForm({ initialData, isAdmin, salesReps, pipelineStages = [],
                 </div>
 
                 <div className="space-y-2">
-                    <Label htmlFor="expected_value">Expected Value ($)</Label>
+                    <Label htmlFor="expected_value">Expected Value (₹)</Label>
                     <Input id="expected_value" name="expected_value" type="number" step="0.01" defaultValue={initialData?.expected_value} />
                 </div>
 

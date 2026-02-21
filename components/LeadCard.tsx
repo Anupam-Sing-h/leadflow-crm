@@ -51,7 +51,7 @@ export default function LeadCard({ lead, onQuickEdit }: LeadCardProps) {
             {lead.expected_value > 0 && (
                 <div className="flex justify-between items-center mt-1">
                     <span className="text-xs bg-primary/10 text-primary px-2 py-0.5 rounded-full font-medium">
-                        ${lead.expected_value.toLocaleString()}
+                        ₹{lead.expected_value.toLocaleString('en-IN')}
                     </span>
                     {lead.assigned_rep && (
                         <span className="text-xs text-muted-foreground truncate max-w-[100px]" title={lead.assigned_rep.name}>

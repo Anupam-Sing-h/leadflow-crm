@@ -44,7 +44,7 @@ export default async function RepLeadDetailsPage({ params }: { params: Promise<{
                         {lead.status}
                     </Badge>
                     <div className="text-sm font-medium">Source: {lead.source}</div>
-                    <div className="text-sm font-medium text-green-700">Value: {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(lead.expected_value || 0)}</div>
+                    <div className="text-sm font-medium text-green-700">Value: {new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(lead.expected_value || 0)}</div>
                 </div>
             </div>
 

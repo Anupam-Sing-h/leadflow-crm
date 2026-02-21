@@ -178,7 +178,7 @@ export default function LeadsTable({ leads, basePath }: LeadsTableProps) {
                                     </TableCell>
                                     <TableCell>{lead.assigned_rep?.name || 'Unassigned'}</TableCell>
                                     <TableCell>
-                                        {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(lead.expected_value || 0)}
+                                        {new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(lead.expected_value || 0)}
                                     </TableCell>
                                     <TableCell>{lead.source || '-'}</TableCell>
                                     <TableCell>

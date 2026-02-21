@@ -27,7 +27,7 @@ export default function PipelineColumn({ status, leads, onQuickEdit }: PipelineC
                         </span>
                         {totalExpectedValue > 0 && (
                             <span className="text-xs font-medium text-primary bg-primary/10 px-2 py-0.5 rounded-full">
-                                ${totalExpectedValue.toLocaleString()}
+                                ₹{totalExpectedValue.toLocaleString('en-IN')}
                             </span>
                         )}
                     </div>

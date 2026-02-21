@@ -4,10 +4,10 @@ import DashboardChart from '@/components/DashboardChart'
 
 // A simple helper function directly in the file since we might not have a helpers file yet
 // Wait, we can just format it directly.
-const formatUSD = (value: number) => {
-    return new Intl.NumberFormat('en-US', {
+const formatCurrency = (value: number) => {
+    return new Intl.NumberFormat('en-IN', {
         style: 'currency',
-        currency: 'USD',
+        currency: 'INR',
         minimumFractionDigits: 0,
         maximumFractionDigits: 0,
     }).format(value)
@@ -73,7 +73,7 @@ export default async function AdminDashboard() {
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="h-4 w-4 text-muted-foreground"><rect width="20" height="14" x="2" y="5" rx="2" /><path d="M2 10h20" /></svg>
                     </CardHeader>
                     <CardContent>
-                        <div className="text-2xl font-bold">{formatUSD(metrics.pipelineValue)}</div>
+                        <div className="text-2xl font-bold">{formatCurrency(metrics.pipelineValue)}</div>
                         <p className="text-xs text-muted-foreground mt-1">Across all phases</p>
                     </CardContent>
                 </Card>
