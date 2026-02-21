@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card'
 import Link from 'next/link'
+import { LayoutDashboard } from 'lucide-react'
 
 export default async function SignupPage({
     searchParams,
@@ -47,8 +48,12 @@ export default async function SignupPage({
     }
 
     return (
-        <div className="flex min-h-screen items-center justify-center p-4 bg-muted/30">
-            <Card className="w-full max-w-sm">
+        <div className="flex min-h-screen flex-col items-center justify-center p-4 bg-muted/30">
+            <Link href="/" className="flex items-center justify-center font-bold text-2xl tracking-tight text-gray-900 mb-8 animate-in fade-in slide-in-from-top-4 duration-700">
+                <LayoutDashboard className="h-8 w-8 mr-2 stroke-[2.5]" />
+                LeadFlow CRM
+            </Link>
+            <Card className="w-full max-w-sm shadow-lg animate-in fade-in slide-in-from-bottom-8 duration-700 delay-150 fill-mode-both">
                 <CardHeader>
                     <CardTitle className="text-2xl">Sign Up</CardTitle>
                     <CardDescription>

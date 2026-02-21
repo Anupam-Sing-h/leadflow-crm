@@ -40,8 +40,8 @@ export function Sidebar({ role }: SidebarProps) {
     return (
         <div className="flex h-screen w-64 flex-col border-r bg-card text-card-foreground">
             <div className="flex h-14 items-center border-b px-4">
-                <Link href="/" className="flex items-center gap-2 font-bold tracking-tight">
-                    <LayoutDashboard className="h-5 w-5" />
+                <Link href="/" className="flex items-center gap-2 font-bold text-xl tracking-tight text-gray-900">
+                    <LayoutDashboard className="h-6 w-6 stroke-[2.5]" />
                     <span>LeadFlow CRM</span>
                 </Link>
             </div>
