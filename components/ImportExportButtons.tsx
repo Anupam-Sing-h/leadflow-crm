@@ -82,7 +82,7 @@ export function ImportExportButtons({ leads }: ImportExportButtonsProps) {
             if (!line) continue
 
             // A somewhat naïve split that respects quotes to some degree
-            const values = []
+            const values: string[] = []
             let inQuotes = false
             let currentValue = ''
 

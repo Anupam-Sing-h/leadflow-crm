@@ -11,7 +11,7 @@ export async function sendEmail(leadId: string, subject: string, body: string) {
     // Call Resend API directly via fetch
     // Next.js server actions sometimes have stale closures for process.env.
     // Using simple assignment but adding a fallback to the public env or a hardcoded string just for testing if needed.
-    const resendApiKey = process.env.RESEND_API_KEY || process.env.NEXT_PUBLIC_RESEND_API_KEY || "re_JD5NKUiY_KBfiReGhUbG8YFDjpx5D6CpV"
+    const resendApiKey = process.env.RESEND_API_KEY || process.env.NEXT_PUBLIC_RESEND_API_KEY
     const resendFromEmail = process.env.RESEND_EMAIL_FROM || 'onboarding@resend.dev'
 
     if (!resendApiKey) {
