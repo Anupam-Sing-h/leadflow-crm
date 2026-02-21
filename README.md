@@ -1,36 +1,92 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 LeadFlow CRM
 
-## Getting Started
+A full-stack, role-based Customer Relationship Management (CRM) platform built to track leads, manage sales pipelines, and analyze performance. Designed and developed during a 24-hour "Vibe Coding" sprint using Next.js and Supabase.
 
-First, run the development server:
+## 🔗 Live Demo & Test Credentials
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Live URL:** [ https://leadflow-crm-ltxn.vercel.app/ ]
+- **Admin Test Account:** `admin1@example.com`, `admin1@example.com` / `654321`
+- **Sales Rep Test Account:** `sales1@gmail.com`, `sales2@gmail.com` / `123456`
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📄 Additional Documentation
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Please refer to the following files included in the root of this repository for further details:
+- **`SUBMISSION.md`**: Contains additional information regarding the assignment submission, design decisions, and the agentic AI workflows utilized during the 24-hour sprint.
+- [cite_start]**`database-schema.sql`**: Contains the raw PostgreSQL schema used to build the Supabase backend, complete with tables and relations.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## ✨ Core Features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 🔐 Role-Based Access Control (RBAC)
+- [cite_start]Strict routing and data isolation between **Administrators** and **Sales Representatives** [cite: 12-32, 137].
+- Reps only see and interact with their explicitly assigned leads.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 📊 Interactive Pipeline Board
+- [cite_start]Full Kanban-style drag-and-drop interface to move leads through customizable pipeline stages (New, Contacted, Qualified, etc.) [cite: 53-56].
+- [cite_start]Dynamic stage value calculations and quick-edit functionality [cite: 55-56].
 
-## Deploy on Vercel
+### 📇 Comprehensive Lead Management
+- [cite_start]Full CRUD operations for lead tracking [cite: 34-36, 136].
+- [cite_start]Activity logging (Calls, Emails, Meetings) and follow-up scheduling with overdue reminders [cite: 57-62].
+- [cite_start]Global search by name/email/company and advanced filtering by stage, rep, and tags [cite: 66-73].
+- [cite_start]Bulk CSV Import and Export capabilities [cite: 63-65, 138].
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 📈 Analytics Dashboards
+- [cite_start]**Admin View:** High-level metrics including total pipeline value, conversion rates, won/lost ratios, and top-performing reps [cite: 80-86].
+- [cite_start]**Rep View:** Individual performance tracking, assigned leads, and daily follow-up task lists [cite: 87-91].
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 🤖 AI Lead Scoring (Bonus Feature)
+- [cite_start]Intelligent 0-100 scoring system evaluating lead quality based on data completeness (email, phone, company), source origin, and pipeline velocity [cite: 143-152].
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend:** Next.js (App Router), React, Tailwind CSS.
+- **UI Components:** Shadcn UI, `@dnd-kit/core` (for Kanban drag-and-drop).
+- **Backend & Database:** Supabase (PostgreSQL), Server Actions.
+- **Authentication:** Supabase Auth.
+- **Deployment:** Vercel.
+
+---
+
+## 🗄️ Database Architecture
+
+The PostgreSQL database (hosted on Supabase) utilizes Row Level Security (RLS). [cite_start]**For the exact table definitions, constraints, and relationships, please view the `database-schema.sql` file included in this repository.** The core tables consist of [cite: 115-124]:
+- `users` (id, name, email, role)
+- `leads` (id, fields, assigned_rep_id, status, expected_value)
+- `pipeline_stages`
+- `lead_tags` & `lead_activities`
+- `lead_followups`
+- `email_templates` & `email_logs`
+
+---
+
+## 🚀 Getting Started (Local Development)
+
+To run this project locally, follow these steps:
+
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/yourusername/leadflow-crm.git](https://github.com/yourusername/leadflow-crm.git)
+   cd leadflow-crm
+   
+2. **Install dependencies:**
+   ```bash
+   npm install
+
+3. **create .env file:**
+   ```bash
+    NEXT_PUBLIC_SUPABASE_URL = ""
+    NEXT_PUBLIC_SUPABASE_ANON_KEY = ""
+    SUPABASE_SERVICE_ROLE_KEY = ""
+
+    RESEND_API_KEY= ""
+    RESEND_EMAIL_FROM= "onboarding@resend.dev"
+
+4. **Run:**
+   ```bash
+   npm run dev
