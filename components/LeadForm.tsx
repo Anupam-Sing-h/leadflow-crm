@@ -28,7 +28,7 @@ interface LeadProps {
 interface LeadFormProps {
     initialData?: LeadProps
     isAdmin: boolean
-    salesReps: { id: string, name: string }[]
+    salesReps: { id: string, name: string, email?: string }[]
     pipelineStages?: { id: string, name: string }[]
     onSuccess?: () => void
     onCancel?: () => void
