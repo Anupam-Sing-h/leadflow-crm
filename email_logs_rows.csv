@@ -1,0 +1,7 @@
+id,lead_id,template_id,sent_at,subject,body,sent_by
+3c4fe3e6-490e-4cc4-91e5-98752124a105,2144b8b0-4435-42b4-b993-83e79f4d333d,,2026-02-20 22:34:49.411493+00,Testing,"Hello Ashis, welcome!",e0de5b5d-f75a-45b5-bc5e-627454e0add7
+98147afc-e1ba-4462-af59-362565ebba2d,aba93383-2522-401c-8927-dded9f83a7fd,,2026-02-20 21:02:42.627824+00,Testing,"Hello Doe, welcome!",76ed3efa-f1e3-444e-8555-64681c4fea99
+c179808d-23e4-4d66-a5ea-fa5c5e13c752,aba93383-2522-401c-8927-dded9f83a7fd,,2026-02-21 00:23:29.203707+00,Follow up on our meeting!,"Hello Doe,
+
+The Meeting Link!",89f61b7f-0f00-4eba-b369-0e88fcd98bc3
+d8f05db1-56a0-4b9e-b771-d38b66c86601,eba8e39e-5c5a-491e-ba9b-943e585cc770,,2026-02-21 01:14:50.45567+00,Testing,"Hello abcd, welcome!",89f61b7f-0f00-4eba-b369-0e88fcd98bc3
