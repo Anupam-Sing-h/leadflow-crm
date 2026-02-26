@@ -1,6 +1,6 @@
 # 🚀 LeadFlow CRM
 
-A full-stack, role-based Customer Relationship Management (CRM) platform built to track leads, manage sales pipelines, and analyze performance. Designed and developed during a 24-hour "Vibe Coding" sprint using Next.js and Supabase.
+A full-stack, role-based Customer Relationship Management (CRM) platform built to track leads, manage sales pipelines, and analyze performance. Designed and developed during a "Vibe Coding" sprint using Next.js and Supabase.
 
 ## 🔗 Live Demo & Test Credentials
 
