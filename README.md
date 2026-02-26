@@ -5,7 +5,7 @@ A full-stack, role-based Customer Relationship Management (CRM) platform built t
 ## 🔗 Live Demo & Test Credentials
 
 - **Live URL:** [ https://leadflow-crm-ltxn.vercel.app/ ]
-- **Admin Test Account:** `admin1@example.com`, `admin1@example.com` / `654321`
+- **Admin Test Account:** `admin1@gmail.com`, `admin2@gmail.com` / `654321`
 - **Sales Rep Test Account:** `sales1@gmail.com`, `sales2@gmail.com` / `123456`
 
 ---
