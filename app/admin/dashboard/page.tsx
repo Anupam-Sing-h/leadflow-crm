@@ -1,6 +1,8 @@
 import { getAdminDashboardMetrics } from '@/app/actions/dashboard'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import DashboardChart from '@/components/DashboardChart'
+import { createClient } from '@/utils/supabase/server'
+import DashboardHeader from '@/components/DashboardHeader'
 
 // A simple helper function directly in the file since we might not have a helpers file yet
 // Wait, we can just format it directly.
@@ -14,16 +16,26 @@ const formatCurrency = (value: number) => {
 }
 
 export default async function AdminDashboard() {
+    const supabase = await createClient()
+    const { data: { user } } = await supabase.auth.getUser()
+
+    let profile = null
+    if (user) {
+        const { data } = await supabase.from('users').select('*').eq('id', user.id).single()
+        profile = data
+    }
+
     const metrics = await getAdminDashboardMetrics()
 
     return (
         <div className="space-y-6">
-            <div>
-                <h1 className="text-3xl font-bold tracking-tight">Admin Dashboard</h1>
-                <p className="text-muted-foreground">
-                    Comprehensive overview of company lead generation and sales performance.
-                </p>
-            </div>
+            {profile && (
+                <DashboardHeader
+                    title="Admin Dashboard"
+                    description="Comprehensive overview of company lead generation and sales performance."
+                    userProfile={profile}
+                />
+            )}
 
             {/* Top Level Summary Cards */}
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">

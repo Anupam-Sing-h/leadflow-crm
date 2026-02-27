@@ -6,11 +6,13 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { createUser, updateUserRole, deleteUser } from '@/app/actions/users'
 import Modal from '@/components/ui/Modal'
-import { Plus, Edit, Trash2 } from 'lucide-react'
+import { Plus, Edit, Trash2, User } from 'lucide-react'
+import ProfileSection from '@/components/ProfileSection'
 
-export default function UsersClient({ initialUsers }: { initialUsers: any[] }) {
+export default function UsersClient({ initialUsers, currentUser }: { initialUsers: any[], currentUser: any }) {
     const [isCreateOpen, setIsCreateOpen] = useState(false)
     const [editUser, setEditUser] = useState<any | null>(null)
+    const [viewUser, setViewUser] = useState<any | null>(null)
     const [isLoading, setIsLoading] = useState(false)
 
     async function handleCreate(formData: FormData) {
@@ -64,7 +66,20 @@ export default function UsersClient({ initialUsers }: { initialUsers: any[] }) {
                     <tbody className="divide-y">
                         {initialUsers.map((user) => (
                             <tr key={user.id} className="hover:bg-muted/50">
-                                <td className="px-4 py-3">{user.name}</td>
+                                <td className="px-4 py-3 flex items-center gap-3">
+                                    <div
+                                        className="relative h-8 w-8 rounded-full overflow-hidden bg-primary/10 flex-shrink-0 border cursor-pointer hover:ring-2 hover:ring-primary/50 transition-all flex items-center justify-center text-primary"
+                                        onClick={() => setViewUser(user)}
+                                        title="View Profile"
+                                    >
+                                        {user.avatar_url ? (
+                                            <img src={user.avatar_url} alt={user.name} className="object-cover w-full h-full" />
+                                        ) : (
+                                            <User size={16} />
+                                        )}
+                                    </div>
+                                    {user.name}
+                                </td>
                                 <td className="px-4 py-3">{user.email}</td>
                                 <td className="px-4 py-3">
                                     <span className="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold bg-primary/10 text-primary">
@@ -150,6 +165,17 @@ export default function UsersClient({ initialUsers }: { initialUsers: any[] }) {
                             <Button type="submit" disabled={isLoading}>Save Changes</Button>
                         </div>
                     </form>
+                )}
+            </Modal>
+
+            <Modal isOpen={!!viewUser} onClose={() => setViewUser(null)} title="User Profile">
+                {viewUser && (
+                    <div className="pt-2">
+                        <ProfileSection user={viewUser} currentUser={currentUser} />
+                        <div className="flex justify-end gap-2 mt-4 pt-4 border-t">
+                            <Button variant="outline" onClick={() => setViewUser(null)}>Close</Button>
+                        </div>
+                    </div>
                 )}
             </Modal>
         </div>

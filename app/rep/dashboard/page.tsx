@@ -1,17 +1,29 @@
 import { getRepDashboardMetrics } from '@/app/actions/dashboard'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { createClient } from '@/utils/supabase/server'
+import DashboardHeader from '@/components/DashboardHeader'
 
 export default async function RepDashboard() {
+    const supabase = await createClient()
+    const { data: { user } } = await supabase.auth.getUser()
+
+    let profile = null
+    if (user) {
+        const { data } = await supabase.from('users').select('*').eq('id', user.id).single()
+        profile = data
+    }
+
     const metrics = await getRepDashboardMetrics()
 
     return (
         <div className="space-y-6">
-            <div>
-                <h1 className="text-3xl font-bold tracking-tight">Sales Dashboard</h1>
-                <p className="text-muted-foreground">
-                    Overview of your assigned leads and upcoming tasks.
-                </p>
-            </div>
+            {profile && (
+                <DashboardHeader
+                    title="Sales Dashboard"
+                    description="Overview of your assigned leads and upcoming tasks."
+                    userProfile={profile}
+                />
+            )}
 
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                 <Card className="shadow-sm hover:shadow-md transition-shadow animate-in fade-in slide-in-from-bottom-4 duration-500">
