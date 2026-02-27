@@ -122,6 +122,7 @@ export default async function SignupPage({
                     </div>
                 </CardFooter>
             </Card>
+            <span className='text-center text-sm w-full'>YOU DON'T NEED TO SIGNUP, <br /> You can directly login using the credentials provided in the login page</span>
         </div>
     )
 }

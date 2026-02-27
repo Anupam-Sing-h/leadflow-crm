@@ -96,6 +96,15 @@ export default async function LoginPage({
                     </div>
                 </CardFooter>
             </Card>
+            <div className="text-top-left text-sm w-full">
+                Admin Email: admin1@gmail.com,  admin2@gmail.com <br />
+                Admin Password: 654321
+            </div>
+            <br />
+            <div className="text-top-left text-sm w-full">
+                Sales Rep. Email: sales1@gmail.com,  sales2@gmail.com <br />
+                Sales Rep. Password: 123456
+            </div>
         </div>
     )
 }
